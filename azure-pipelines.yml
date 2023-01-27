@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- task: AzureRmWebAppDeployment@4
+- task: 'AzureRmWebAppDeployment@4'
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'test-connection'
