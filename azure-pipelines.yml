@@ -16,3 +16,4 @@ pool:
     appType: 'webAppLinux'
     WebAppName: 'MyWebsite'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'STATICSITE|1.0'
