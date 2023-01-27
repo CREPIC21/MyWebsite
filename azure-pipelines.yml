@@ -18,5 +18,6 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'test-connection'
     appType: 'webApp'
-    WebAppName: 'MyWebsite'
+    WebAppName: 'MyWebsiteDanMan'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
