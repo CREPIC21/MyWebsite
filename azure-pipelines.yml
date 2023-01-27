@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+steps:
+- script: echo K8S Terraform Azure
+  displayName: 'Run a one-line script'
+
 - task: 'AzureRmWebAppDeployment@4'
   inputs:
     ConnectionType: 'AzureRM'
