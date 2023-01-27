@@ -13,11 +13,10 @@ steps:
 - script: echo K8S Terraform Azure
   displayName: 'Run a one-line script'
 
-- task: 'AzureRmWebAppDeployment@4'
+- task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'test-connection'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     WebAppName: 'MyWebsite'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'STATICSITE|1.0'
