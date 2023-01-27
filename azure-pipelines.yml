@@ -12,10 +12,7 @@ pool:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1(1)(b454ea40-6d37-4942-926a-a63094de3c14)'
+    azureSubscription: 'test-connection'
     appType: 'webAppLinux'
     WebAppName: 'MyWebsite'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'mywebsite'
-    SlotName: 'production'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
