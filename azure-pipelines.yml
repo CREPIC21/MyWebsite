@@ -18,6 +18,8 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'test-connection'
     appType: 'webApp'
-    WebAppName: 'MyWebsiteDanMan'
+    WebAppName: 'testdanman'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    enableCustomDeployment: true
+    DeploymentType: 'webDeploy'
 
