@@ -1,8 +1,5 @@
 
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Pipline to build docker image and push it to the Docker Hub
 
 trigger:
 - main
