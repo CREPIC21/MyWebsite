@@ -6,20 +6,27 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+resources:
+- repo: self
 
-steps:
-- script: echo K8S Terraform Azure
-  displayName: 'Run a one-line script'
+variables:
+  tag: '$(Build.BuildId)'
 
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'test-connection'
-    appType: 'webApp'
-    WebAppName: 'testdanman'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    enableCustomDeployment: true
-    DeploymentType: 'webDeploy'
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        containerRegistry: 'crepic21-docker-hub'
+        repository: 'crepic21/my-website'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
 
