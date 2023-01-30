@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'crepic21-docker-hub'
+        containerRegistry: 'docker-connection'
         repository: 'crepic21/my-website'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
