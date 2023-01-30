@@ -1,5 +1,6 @@
 
 # Pipline to build docker image and push it to the Docker Hub
+# TODO - create wiki page with instructions how to create this pipeline
 
 trigger:
 - main
