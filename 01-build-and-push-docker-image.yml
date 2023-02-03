@@ -61,5 +61,5 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'kubernetes-cluster-connection'
         namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/k8c_deployment'
+        manifests: '$(System.ArtifactsDirectory)/k8c_deployment/deployment.yaml'
         containers: 'crepic21/my-website:$(tag)'
