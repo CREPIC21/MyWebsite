@@ -59,7 +59,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'bs-azure-kubernetes-cluster-service-connection'
+        kubernetesServiceConnection: 'kubernetes-cluster-connection'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/k8c_deployment'
         containers: 'crepic21/my-website:$(tag)'
