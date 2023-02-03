@@ -12,8 +12,8 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- stage: Build and Push
-  displayName: Build and Push an image
+- stage: Build
+  displayName: Build
   jobs:
   - job: Build
     displayName: Build
