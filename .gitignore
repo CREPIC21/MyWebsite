@@ -1,3 +1,6 @@
 azure_rsa
 azure_rsa.pub
 azure_secrets.json
+gcp_iac/gcp_keys
+gcp_iac/gcp_gce/.terraform*
+gcp_iac/gcp_gce/terraform*
