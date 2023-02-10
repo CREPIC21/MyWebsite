@@ -32,13 +32,13 @@ steps:
     backendAzureRmContainerName: 'staccountcrepic870609container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: false
-# - task: TerraformCLI@0
-#   inputs:
-#     command: 'apply'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/azure_iac'
-#     environmentServiceName: 'azure-connection'
-#     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
-#     allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/azure_iac'
+    environmentServiceName: 'azure-connection'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    allowTelemetryCollection: false
 
 # # added forceunlock as pipeline would not complete
 # - task: TerraformCLI@0
@@ -46,9 +46,9 @@ steps:
 #     command: 'forceunlock'
 #     workingDirectory: '$(System.DefaultWorkingDirectory)/azure_iac'
 # #     lockID: 'c1ab89c5-51aa-4aed-daab-2e0fb97dc9c9'
-- task: TerraformCLI@0
-  inputs:
-    command: 'destroy'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/azure_iac'
-    environmentServiceName: 'azure-connection'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'destroy'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/azure_iac'
+#     environmentServiceName: 'azure-connection'
+#     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
