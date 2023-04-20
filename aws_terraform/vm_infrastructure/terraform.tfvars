@@ -1,0 +1,6 @@
+vpc_cider_block = "10.0.0.0/16"
+web_subnet      = "10.0.10.0/24"
+subnet_zone     = "eu-central-1a"
+main_vpc_name = "Production VPC"
+# my_public_ip  = "91.232.46.35"
+ssh_public_key = "C:\\Users\\crepi\\Desktop\\Piwik Laptop\\projects\\myPortfolio\\aws_terraform\\keys\\test_rsa.pub"

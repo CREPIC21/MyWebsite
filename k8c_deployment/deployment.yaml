@@ -79,14 +79,14 @@ spec:
 #   labels:
 #     app: hello-world-bsnodejs
 #     version: v1
-#   name: hello-world-bsnodejs-v1
+#   name: my-website-v1
 #   namespace: default
 # spec:
 #   replicas: 2
 #   minReadySeconds: 45
 #   selector:
 #     matchLabels:
-#       app: hello-world-bsnodejs
+#       app: my-website
 #       version: v1
 #   strategy:
 #     rollingUpdate:
@@ -96,13 +96,13 @@ spec:
 #   template:
 #     metadata:
 #       labels:
-#         app: hello-world-bsnodejs
+#         app: my-website
 #         version: v1
 #     spec:
 #       containers:
-#       - image: crepic21/hello-world-bsnodejs:0.0.1.RELEASE
+#       - image: crepic21/my-website:0.0.1.RELEASE
 #         imagePullPolicy: IfNotPresent
-#         name: hello-world-bsnodejs
+#         name: my-website
 #       restartPolicy: Always
 #       terminationGracePeriodSeconds: 30
 # ---
@@ -110,16 +110,16 @@ spec:
 # kind: Deployment
 # metadata:
 #   labels:
-#     app: hello-world-bsnodejs
+#     app: my-website
 #     version: v2
-#   name: hello-world-bsnodejs-v2
+#   name: my-website-v2
 #   namespace: default
 # spec:
 #   replicas: 2
 #   minReadySeconds: 45
 #   selector:
 #     matchLabels:
-#       app: hello-world-bsnodejs
+#       app: my-website
 #       version: v2
 #   strategy:
 #     rollingUpdate:
@@ -129,13 +129,13 @@ spec:
 #   template:
 #     metadata:
 #       labels:
-#         app: hello-world-bsnodejs
+#         app: my-website
 #         version: v2
 #     spec:
 #       containers:
-#       - image: crepic21/hello-world-bsnodejs:0.0.2.RELEASE
+#       - image: crepic21/my-website:0.0.2.RELEASE
 #         imagePullPolicy: IfNotPresent
-#         name: hello-world-bsnodejs
+#         name: my-website
 #       restartPolicy: Always
 #       terminationGracePeriodSeconds: 30
 # ---
@@ -147,8 +147,8 @@ spec:
 #   finalizers:
 #   - service.kubernetes.io/load-balancer-cleanup
 #   labels:
-#     app: hello-world-bsnodejs
-#   name: hello-world-bsnodejs
+#     app: my-website
+#   name: my-website
 #   namespace: default
 # spec:
 #   allocateLoadBalancerNodePorts: true
@@ -158,7 +158,7 @@ spec:
 #     protocol: TCP
 #     targetPort: 5000
 #   selector:
-#     app: hello-world-bsnodejs
+#     app: my-website
 #     # version: v2
 #   sessionAffinity: None
 #   type: LoadBalancer

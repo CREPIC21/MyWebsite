@@ -1,6 +1,14 @@
+# Azure IaC
 azure_rsa
 azure_rsa.pub
 azure_secrets.json
+
+# GCP IaC
 gcp_iac/gcp_keys
 gcp_iac/gcp_gce/.terraform*
 gcp_iac/gcp_gce/terraform*
+
+# aws IaC
+aws_terraform/keys
+aws_terraform/vm_infrastructure/.terraform*
+aws_terraform/vm_infrastructure/terraform.tfs*
