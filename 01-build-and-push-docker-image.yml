@@ -59,7 +59,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'kubernetes-cluster-connection'
+        kubernetesServiceConnection: 'friday-k8c-test'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/k8c_deployment/deployment.yaml'
         containers: 'crepic21/my-website:$(tag)'
