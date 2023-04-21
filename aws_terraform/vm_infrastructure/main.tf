@@ -9,7 +9,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "eu-central-1"
+  region = var.deployment_region
 }
 
 # Create a VPC
@@ -26,7 +26,7 @@ resource "aws_subnet" "web" {
   cidr_block        = var.web_subnet
   availability_zone = var.subnet_zone # think of a avaliability zone as data center in the region
   tags = {
-    "Name" = "Web Subnet"
+    "Name" = "${var.main_vpc_name} Subnet"
   }
 }
 
@@ -44,12 +44,12 @@ resource "aws_default_route_table" "main_vpc_default_rt" {
   default_route_table_id = aws_vpc.main.default_route_table_id
 
   route {
-    cidr_block = "0.0.0.0/0" # all traffic that is not local to VPC will be handeled by the internet gateway
+    cidr_block = var.main_vpc_default_rt_cidr_block # all traffic that is not local to VPC will be handeled by the internet gateway
     gateway_id = aws_internet_gateway.my_web_igw.id
   }
 
   tags = {
-    "Name" = "my-default-route-table"
+    "Name" = "${var.main_vpc_name} Route Table"
   }
 }
 
@@ -57,19 +57,16 @@ resource "aws_default_route_table" "main_vpc_default_rt" {
 resource "aws_default_security_group" "default_sec_group" {
   vpc_id = aws_vpc.main.id
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # list of IP addresses that are allowed to SSH to the server, in this case any IP address can SSH to the server
-    # cidr_blocks = [var.my_public_ip] # my public IP, only I am allowed to SSH to the server
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  # creating the ingress rules using dynamic blocks
+  dynamic "ingress" {
+    for_each = var.ingress_ports
+    iterator = iport
+    content {
+      from_port   = iport.value
+      to_port     = iport.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 
   egress {
@@ -80,14 +77,14 @@ resource "aws_default_security_group" "default_sec_group" {
   }
 
   tags = {
-    "Name" = "Default Security Group"
+    "Name" = "${var.main_vpc_name} Security Group"
   }
 
 }
 
 # Create a key-pair resource that will be used to control login access to EC2 instance, giving the path to the public key
 resource "aws_key_pair" "test_ssh_key" {
-  key_name   = "testing_ssh_key"
+  key_name   = var.test_ssh_key_name
   public_key = file(var.ssh_public_key)
 }
 
@@ -110,7 +107,7 @@ data "aws_ami" "latest_amazon_linux2" {
 resource "aws_instance" "my_vm" {
   #   ami                         = "ami-06616b7884ac98cdd"
   ami                         = data.aws_ami.latest_amazon_linux2.id
-  instance_type               = "t2.micro"
+  instance_type               = var.vm_instance_type
   subnet_id                   = aws_subnet.web.id                                 # mapping to the our created subnet so the EC2 will be launched in that subnet and not in the default one
   vpc_security_group_ids      = [aws_default_security_group.default_sec_group.id] # mapping to the our created security group
   associate_public_ip_address = true                                              # public IP that is required to access the EC2 from the internet
@@ -118,7 +115,7 @@ resource "aws_instance" "my_vm" {
   key_name  = aws_key_pair.test_ssh_key.key_name
   user_data = file("deploymentScript.sh")
   tags = {
-    "Name" = "My EC2 Instance - Amazon Linux 2"
+    "Name" = var.my_vm_name
   }
 }
 
