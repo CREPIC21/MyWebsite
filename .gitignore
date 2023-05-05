@@ -12,3 +12,7 @@ gcp_iac/gcp_gce/terraform*
 aws_terraform/keys
 aws_terraform/vm_infrastructure/.terraform*
 aws_terraform/vm_infrastructure/terraform.tfs*
+
+aws_terraform/keys
+aws_terraform/eks_infrastructure/.terraform*
+aws_terraform/eks_infrastructure/terraform.tfs*
