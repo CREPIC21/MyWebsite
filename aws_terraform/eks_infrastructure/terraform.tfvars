@@ -1,2 +1,2 @@
-deployment_region              = "eu-central-1"
+deployment_region = "eu-central-1"
 

@@ -5,6 +5,7 @@
 2. Once IaC is provisioned, login to the AWS console, from there login to provisioned cluster, commands:
 `aws configure`
 `aws eks --region=<region_name> update-kubeconfig --name=<cluster_name>`
+`aws eks list-clusters`
 
 3. Pull and deploy the image on to the cluster using deployment.yaml file
 `kubectl apply -f deployment.yaml`
@@ -17,6 +18,7 @@
 - `kubectl explain pods`
 - `kubectl describe pod <pod_name>`
 - `kubectl delete pods <pod_name>`
+- `kubectl logs -f <pod_name>`
 - `kubectl get replicaset`
 - `kubectl explain replicaset`
 - `kubectl get deployment`
