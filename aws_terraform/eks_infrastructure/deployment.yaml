@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: my-website
-        image: crepic21/my-website:152
+        image: crepic21/my-website
         imagePullPolicy: IfNotPresent
         ports:
         - name: liveness-port
