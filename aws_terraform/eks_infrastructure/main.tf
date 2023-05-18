@@ -21,7 +21,7 @@ provider "kubernetes" {
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "~> 18.0"
-  cluster_name    = "MyPortfolio-cluster"
+  cluster_name    = var.cluster_name
   cluster_version = "1.22"
 
   vpc_id     = aws_default_vpc.default.id
@@ -29,13 +29,13 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-1"
+      name = var.eks_managed_node_groups_name
 
-      instance_types = ["t2.micro"]
+      instance_types = [var.eks_vm_instance_type]
 
-      min_size     = 3
-      max_size     = 5
-      desired_size = 3
+      min_size     = var.eks_vm_instance_type_min_size
+      max_size     = var.eks_vm_instance_type_max_size
+      desired_size = var.eks_vm_instance_type_desired_size
     }
   }
 }
