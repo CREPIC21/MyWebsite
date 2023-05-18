@@ -59,7 +59,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'friday-k8c-test'
+        kubernetesServiceConnection: 'friday-test-my-portfolio'
         namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/k8c_deployment/deployment.yaml'
+        manifests: '$(System.ArtifactsDirectory)/aws_terraform/eks_infrastructure/deployment.yaml'
         containers: 'crepic21/my-website:$(tag)'
