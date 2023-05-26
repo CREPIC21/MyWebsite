@@ -143,7 +143,6 @@ resource "azurerm_managed_disk" "appdisk" {
 }
 
 # Attaching the disk created in previous step to VM
-## see video on how to initialize the disk once the resource is created - https://www.udemy.com/course/terraform-on-azure-services/learn/lecture/32749324#questions/18296260
 resource "azurerm_virtual_machine_data_disk_attachment" "diskattach" {
   managed_disk_id    = azurerm_managed_disk.appdisk.id
   virtual_machine_id = azurerm_linux_virtual_machine.appvm.id
