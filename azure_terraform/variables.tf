@@ -143,3 +143,17 @@ variable "deployment_script_extension_name" {
   type    = string
   default = "deployment-script"
 }
+
+variable "networksecuritygroup_rules" {
+  type = list(any)
+  default = [
+    {
+      priority               = 200
+      destination_port_range = "22"
+    },
+    {
+      priority               = 300
+      destination_port_range = "80"
+    }
+  ]
+}
