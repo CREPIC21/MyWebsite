@@ -84,7 +84,7 @@ resource "azurerm_linux_virtual_machine" "appvm" {
   ]
 }
 
-# # Deployiong MyPortfolio script to VM
+# # Deployiong MyPortfolio script to VM using azurerm_virtual_machine_extension resource
 # resource "azurerm_virtual_machine_extension" "deployment_script_extension" {
 #   name                 = var.deployment_script_extension_name
 #   virtual_machine_id   = azurerm_linux_virtual_machine.appvm.id

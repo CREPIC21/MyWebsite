@@ -1,5 +1,4 @@
 #!/bin/bash
-
 GIT="https://github.com/CREPIC21/MyWebsite.git"
 sudo apt update && apt full-upgrade -y
 sudo apt update && apt install apache2 -y
@@ -12,3 +11,5 @@ sudo mv apps/MyWebsite/index.html /var/www/html/
 sudo mv apps/MyWebsite/style.css /var/www/html/
 sudo mv apps/MyWebsite/script.js /var/www/html/
 sudo mv apps/MyWebsite/images/ /var/www/html/
+
+

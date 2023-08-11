@@ -1,4 +1,4 @@
-# Creating additional Windows Web App Slot
+# Creating additional Linux Web App Slot
 resource "azurerm_linux_web_app_slot" "web_app_slot" {
   name           = var.web_app_slot_name
   app_service_id = azurerm_linux_web_app.myportfolio_01.id
