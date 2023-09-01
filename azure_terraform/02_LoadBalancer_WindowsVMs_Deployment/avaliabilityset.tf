@@ -1,3 +1,11 @@
+/*
+
+Dcumentation:
+
+1. azurerm_availability_set - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/availability_set
+
+*/
+
 # Creating a avaliability set
 resource "azurerm_availability_set" "appset" {
   name                         = "app-set"

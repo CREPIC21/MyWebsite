@@ -1,3 +1,13 @@
+/*
+
+Dcumentation:
+
+1. azurerm_network_interface - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
+
+2. azurerm_windows_virtual_machine - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine
+
+*/
+
 # Creating a network interface
 resource "azurerm_network_interface" "appinterface" {
   count               = var.number_of_machines

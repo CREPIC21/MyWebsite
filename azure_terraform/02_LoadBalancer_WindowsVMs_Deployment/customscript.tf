@@ -1,3 +1,17 @@
+/*
+
+Dcumentation:
+
+1. azurerm_storage_account - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account.html
+
+2. azurerm_storage_container - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container
+
+3. azurerm_storage_blob - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_blob
+
+4. azurerm_virtual_machine_extension - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension
+
+*/
+
 # Creating an storage account where we will upload custom script
 resource "azurerm_storage_account" "appgrpstorage" {
   name                     = "port456243"

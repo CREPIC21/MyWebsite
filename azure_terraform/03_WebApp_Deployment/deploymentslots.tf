@@ -1,3 +1,13 @@
+/*
+
+Dcumentation:
+
+1. azurerm_linux_web_app_slot - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot
+
+2. azurerm_web_app_active_slot - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_active_slot
+
+*/
+
 # Creating additional Linux Web App Slot
 resource "azurerm_linux_web_app_slot" "web_app_slot" {
   name           = var.web_app_slot_name

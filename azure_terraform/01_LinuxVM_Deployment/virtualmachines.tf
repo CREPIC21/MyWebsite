@@ -1,3 +1,21 @@
+/*
+
+Dcumentation:
+
+1. azurerm_network_interface - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
+
+2. azurerm_public_ip - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
+
+3. tls_private_key - https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+
+4. local_file - https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file
+
+5. template_file - https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file
+
+6. azurerm_linux_virtual_machine - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
+
+*/
+
 # Creating a network interface
 resource "azurerm_network_interface" "appinterface" {
   name                = var.appinterface_name
@@ -83,51 +101,6 @@ resource "azurerm_linux_virtual_machine" "appvm" {
     tls_private_key.linuxkey
   ]
 }
-
-# # Deployiong MyPortfolio script to VM using azurerm_virtual_machine_extension resource
-# resource "azurerm_virtual_machine_extension" "deployment_script_extension" {
-#   name                 = var.deployment_script_extension_name
-#   virtual_machine_id   = azurerm_linux_virtual_machine.appvm.id
-#   publisher            = "Microsoft.Azure.Extensions"
-#   type                 = "CustomScript"
-#   type_handler_version = "2.0"
-
-#   // https://hypernephelist.com/2019/06/25/azure-vm-custom-script-extensions-with-terraform.html
-#   settings = <<SETTINGS
-#  {
-#     "script": "${filebase64("deploymentScript.sh")}"
-# }
-# SETTINGS
-
-#   depends_on = [
-#     azurerm_linux_virtual_machine.appvm
-#   ]
-# }
-
-# # Creating additional disk that will be attached to VM
-# resource "azurerm_managed_disk" "appdisk" {
-#   name                 = var.appdisk_name
-#   location             = var.location
-#   resource_group_name  = var.resource_group_name
-#   storage_account_type = var.vm_os_disk_storage_account_type
-#   create_option        = var.appdisk_create_option
-#   disk_size_gb         = var.appdisk_disk_size_gb
-#   depends_on = [
-#     azurerm_resource_group.appgrp
-#   ]
-# }
-
-# # Attaching the disk created in previous step to VM
-# resource "azurerm_virtual_machine_data_disk_attachment" "diskattach" {
-#   managed_disk_id    = azurerm_managed_disk.appdisk.id
-#   virtual_machine_id = azurerm_linux_virtual_machine.appvm.id
-#   lun                = var.diskattach_lun
-#   caching            = var.diskattach_caching
-#   depends_on = [
-#     azurerm_managed_disk.appdisk,
-#     azurerm_linux_virtual_machine.appvm
-#   ]
-# }
 
 output "app-public-IP" {
   value = azurerm_public_ip.apppublicip.ip_address

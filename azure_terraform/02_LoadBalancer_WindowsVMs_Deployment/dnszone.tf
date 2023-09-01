@@ -1,3 +1,13 @@
+/*
+
+Dcumentation:
+
+1. azurerm_dns_zone - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone
+
+2. azurerm_dns_a_record - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_a_record
+
+*/
+
 resource "azurerm_dns_zone" "cloudportalhub" {
   name                = "projectdanijel.xyz" // need to include domain name from namecheap, godaddy ...
   resource_group_name = local.resource_group_name

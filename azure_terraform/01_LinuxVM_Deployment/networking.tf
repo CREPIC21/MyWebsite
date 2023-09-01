@@ -1,3 +1,15 @@
+/*
+
+Dcumentation:
+
+1. azurerm_virtual_network - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
+
+2. azurerm_network_security_group - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group
+
+3. azurerm_subnet_network_security_group_association - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association
+
+*/
+
 # Creating a virtual network
 resource "azurerm_virtual_network" "appnetwork" {
   name                = var.virtual_network.name

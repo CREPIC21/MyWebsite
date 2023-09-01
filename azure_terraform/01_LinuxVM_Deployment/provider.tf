@@ -1,3 +1,11 @@
+/*
+
+Dcumentation:
+
+1. azurerm - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+
+*/
+
 # Defining the provider
 terraform {
   required_providers {

@@ -1,3 +1,21 @@
+/*
+
+Dcumentation:
+
+1. azurerm_public_ip - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
+
+2. azurerm_lb - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb
+
+3. azurerm_lb_backend_address_pool - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_backend_address_pool
+
+4. azurerm_lb_backend_address_pool_address - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_backend_address_pool_address
+
+5. azurerm_lb_probe - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_probe
+
+6. azurerm_lb_rule - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_rule
+
+*/
+
 # Creating a public IP 
 resource "azurerm_public_ip" "loabip" {
   name                = "load-ip"
