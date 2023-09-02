@@ -38,9 +38,7 @@ Ensure that you review and customize the Terraform configuration according to yo
 ```shell
 terraform apply
 ```
-- you will be prompted to confirm the deployment, type `yes` to proceed
-
-2. Terraform will provision the specified Azure resources, including the Linux VM. Once the deployment is complete, it will execute the `custom_data` script to deploy the web application.
+- you will be prompted to confirm the deployment, type `yes` to proceed and Terraform will provision the specified Azure resources
 
 ### Clean Up
 To avoid incurring unnecessary charges, it's essential to clean up the Azure resources when you're done with them. Run the following command to destroy the resources created by Terraform:
