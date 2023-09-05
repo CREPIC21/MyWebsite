@@ -4,6 +4,8 @@ azure_rsa.pub
 azure_secrets.json
 azure_terraform/01_LinuxVM_Deployment/.terraform*
 azure_terraform/01_LinuxVM_Deployment/terraform.tfs*
+azure_terraform/01_LinuxVM_Deployment/module_deployment/.terraform*
+azure_terraform/01_LinuxVM_Deployment/module_deployment/terraform.tfs*
 azure_terraform/02_LoadBalancer_WindowsVMs_Deployment/.terraform*
 azure_terraform/02_LoadBalancer_WindowsVMs_Deployment/terraform.tfs*
 azure_terraform/03_WebApp_Deployment/.terraform*
