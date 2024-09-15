@@ -1,3 +1,3 @@
 # MyWebsite
 
-https://crepic21.github.io/MyWebsite/
+https://firstwebsite.dc-cybertrooper.com/
